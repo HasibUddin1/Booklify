@@ -33,7 +33,7 @@ if (session_status() == PHP_SESSION_NONE) {
         </div>
 
         <!-- Search Container -->
-        <form method="POST" action="search_results.php" class="search_section flex w-full max-w-6xl mx-auto gap-0 border-2 border-yellow-400 bg-white rounded-lg">
+        <form method="POST" action="core/search_results.php" class="search_section flex w-full max-w-6xl mx-auto gap-0 border-2 border-yellow-400 bg-white rounded-lg">
 
             <!-- Destination -->
             <input type="text" name="destination" placeholder="Where are you going?" class="flex-1 border-2 border-yellow-400 p-2 focus:outline-none bg-white" />

@@ -11,7 +11,7 @@ define('STRIPE_PUBLISHABLE_KEY', 'alsdjklashasjkdhkj');
 
 
 define("DB_HOST", "localhost");
-define("DB_NAME", "dashboard");
+define("DB_NAME", "booklify");
 define("DB_USERNAME", "root");
 define("DB_PASSWORD", "");
 
