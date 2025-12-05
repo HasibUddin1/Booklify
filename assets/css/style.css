@@ -1,3 +1,12 @@
 body {
   font-family: "Inter", sans-serif;
 }
+
+.header_section .brand_name{
+  text-decoration: none;
+  
+}
+
+.header_section .nav_link{
+  text-decoration: none;
+}
