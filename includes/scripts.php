@@ -16,8 +16,62 @@
 <script src="assets/js/script.js"></script>
 
 
+<!-- Fetching Destinations -->
 <script>
-    // Searchbar Dropdown toggle
+    // DOM elements
+    const destinationInput = document.getElementById('destinationInput');
+    const suggestionsBox = document.getElementById('destinationSuggestions');
+
+    let destinations = [];
+
+    // Fetch destinations from backend PHP
+    fetch('core/destination.php')
+        .then(res => res.json())
+        .then(data => destinations = data)
+        .catch(err => console.error('Error fetching destinations:', err));
+
+    // Show suggestions on input
+    destinationInput.addEventListener('input', function() {
+        const query = this.value.toLowerCase().trim();
+
+        if (query === "") {
+            suggestionsBox.classList.add('hidden');
+            return;
+        }
+
+        const filtered = destinations.filter(dest => dest.toLowerCase().includes(query));
+
+        if (filtered.length === 0) {
+            suggestionsBox.classList.add('hidden');
+            return;
+        }
+
+        suggestionsBox.innerHTML = filtered.map(dest => `
+        <div class="p-2 hover:bg-gray-100 cursor-pointer" onclick="selectDestination('${dest}')">${dest}</div>
+    `).join('');
+
+        suggestionsBox.classList.remove('hidden');
+    });
+
+    // Function to set input when user clicks a suggestion
+    function selectDestination(value) {
+        destinationInput.value = value;
+        suggestionsBox.classList.add('hidden');
+    }
+
+    // Hide dropdown if clicked outside
+    document.addEventListener('click', function(e) {
+        if (!destinationInput.contains(e.target) && !suggestionsBox.contains(e.target)) {
+            suggestionsBox.classList.add('hidden');
+        }
+    });
+</script>
+
+
+
+
+<!-- Searchbar Dropdown toggle main-js -->
+<script>
     const dropdownButton = document.getElementById('dropdownButton');
     const dropdownMenu = document.getElementById('dropdownMenu');
     dropdownButton.addEventListener('click', () => {

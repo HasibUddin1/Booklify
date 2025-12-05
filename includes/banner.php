@@ -12,17 +12,16 @@
 
         <!-- Destination -->
         <div class="relative flex-1 border-2 border-yellow-400 p-2 bg-white">
-    <input 
-        type="text" 
-        name="destination" 
-        id="destinationInput"
-        placeholder="Where are you going?" 
-        class="w-full focus:outline-none bg-white" 
-        autocomplete="off"
-    />
-    <!-- Suggestions Dropdown -->
-    <div id="destinationSuggestions" class="absolute top-full left-0 w-full bg-white border border-gray-300 shadow-lg mt-1 hidden z-10"></div>
-</div>
+            <input
+                type="text"
+                name="destination"
+                id="destinationInput"
+                placeholder="Where are you going?"
+                class="w-full focus:outline-none bg-white"
+                autocomplete="off" />
+            <!-- Suggestions Dropdown -->
+            <div id="destinationSuggestions" class="absolute top-full left-0 w-full bg-white border border-gray-300 shadow-lg mt-1 hidden z-10"></div>
+        </div>
 
         <!-- Check-in / Check-out -->
         <div class="relative flex-1 border-2 border-yellow-400 p-2 bg-white">
