@@ -112,6 +112,21 @@ if (session_status() == PHP_SESSION_NONE) {
 
         </form>
 
+        <!-- Success or Error Message for Booking -->
+        <div class="success_message">
+            <?php if (isset($_GET['success'])): ?>
+                <div class="p-3 bg-green-200 text-green-900 rounded mb-3">
+                    Booking successfully saved!
+                </div>
+            <?php endif; ?>
+
+            <?php if (isset($_GET['error'])): ?>
+                <div class="p-3 bg-red-200 text-red-900 rounded mb-3">
+                    Error: <?= htmlspecialchars($_GET['error']) ?>
+                </div>
+            <?php endif; ?>
+        </div>
+
     </section>
 
 

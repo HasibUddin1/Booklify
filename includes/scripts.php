@@ -27,6 +27,11 @@
     // Date picker dropdown
     const dateButton = document.getElementById('dateButton');
     const dateDropdown = document.getElementById('dateDropdown');
+
+    dateButton.addEventListener('click', () => {
+        dateDropdown.classList.toggle('hidden');
+    });
+
     const applyDates = document.getElementById('applyDates');
     const checkin = document.getElementById('checkin');
     const checkout = document.getElementById('checkout');

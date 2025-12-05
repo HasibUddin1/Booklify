@@ -1,5 +1,5 @@
 <?php
-include_once "../config/db_connection.php";
+include_once "db_connection.php";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
@@ -21,15 +21,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             VALUES ('$destination', '$checkin', '$checkout', $adults, $children, $rooms)";
 
     if (mysqli_query($conn, $sql)) {
-        echo "<h2 class='text-green-600'>Booking successfully saved!</h2>";
-        echo "<p>Destination: $destination</p>";
-        echo "<p>Check-in: $checkin</p>";
-        echo "<p>Check-out: $checkout</p>";
-        echo "<p>Adults: $adults</p>";
-        echo "<p>Children: $children</p>";
-        echo "<p>Rooms: $rooms</p>";
+        header("Location: ../index.php?success=1");
+        exit;
     } else {
-        echo "<p class='text-red-600'>Error: " . mysqli_error($conn) . "</p>";
+        header("Location: ../index.php?error=" . urlencode(mysqli_error($conn)));
+        exit;
     }
 
     mysqli_close($conn);
