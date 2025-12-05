@@ -2,11 +2,19 @@ body {
   font-family: "Inter", sans-serif;
 }
 
-.header_section .brand_name{
+.header_section .brand_name {
   text-decoration: none;
-  
 }
 
-.header_section .nav_link{
+.header_section .nav_link {
   text-decoration: none;
+}
+
+.header_section .nav_link_auth {
+  text-decoration: none;
+}
+
+.banner_section .hero_text{
+  font-size: 48px;
+  font-weight: 700;
 }

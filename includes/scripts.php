@@ -14,3 +14,40 @@
 
 <!-- main-js -->
 <script src="assets/js/script.js"></script>
+
+
+<script>
+    // Searchbar Dropdown toggle
+    const dropdownButton = document.getElementById('dropdownButton');
+    const dropdownMenu = document.getElementById('dropdownMenu');
+    dropdownButton.addEventListener('click', () => {
+        dropdownMenu.classList.toggle('hidden');
+    });
+
+    // Date picker dropdown
+    const dateButton = document.getElementById('dateButton');
+    const dateDropdown = document.getElementById('dateDropdown');
+    const applyDates = document.getElementById('applyDates');
+    const checkin = document.getElementById('checkin');
+    const checkout = document.getElementById('checkout');
+
+    applyDates.addEventListener('click', () => {
+        const ci = checkin.value;
+        const co = checkout.value;
+        if(ci && co){
+            dateButton.innerText = `${ci} - ${co}`;
+            document.getElementById('checkin_hidden').value = ci;
+            document.getElementById('checkout_hidden').value = co;
+        }
+        dateDropdown.classList.add('hidden');
+    });
+
+    // Quantity counters
+    const counts = { adults: 1, children: 0, rooms: 1 };
+    function updateCount(type, delta) {
+        counts[type] += delta;
+        if (counts[type] < 0) counts[type] = 0;
+        document.getElementById(type + 'Count').innerText = counts[type];
+        document.getElementById(type + '_hidden').value = counts[type];
+    }
+</script>
