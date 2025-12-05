@@ -39,7 +39,7 @@
     applyDates.addEventListener('click', () => {
         const ci = checkin.value;
         const co = checkout.value;
-        if(ci && co){
+        if (ci && co) {
             dateButton.innerText = `${ci} - ${co}`;
             document.getElementById('checkin_hidden').value = ci;
             document.getElementById('checkout_hidden').value = co;
@@ -48,11 +48,28 @@
     });
 
     // Quantity counters
-    const counts = { adults: 1, children: 0, rooms: 1 };
+    const counts = {
+        adults: 1,
+        children: 0,
+        rooms: 1
+    };
+
     function updateCount(type, delta) {
         counts[type] += delta;
         if (counts[type] < 0) counts[type] = 0;
         document.getElementById(type + 'Count').innerText = counts[type];
         document.getElementById(type + '_hidden').value = counts[type];
+    }
+
+    const msgBox = document.getElementById('msgBox');
+    if (msgBox) {
+        setTimeout(() => {
+            msgBox.style.display = 'none';
+            // Optional: Remove URL param after showing
+            if (window.history.replaceState) {
+                const url = window.location.href.split('?')[0];
+                window.history.replaceState({}, document.title, url);
+            }
+        }, 5000); // 5 seconds
     }
 </script>
