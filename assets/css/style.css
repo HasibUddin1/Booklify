@@ -18,3 +18,9 @@ body {
   font-size: 48px;
   font-weight: 700;
 }
+
+
+.features_section .feature_heading{
+  font-size: 24px;
+  font-weight: 700;
+}

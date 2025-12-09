@@ -27,6 +27,8 @@ if (session_status() == PHP_SESSION_NONE) {
 
     <!-- Banner Section -->
     <?php include_once "includes/banner.php"; ?>
+    
+    <?php include_once "includes/features.php"; ?>
 
     
 
