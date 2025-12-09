@@ -8,7 +8,7 @@
     </div>
 
     <!-- Search Container -->
-    <form method="POST" action="core/search_results.php" class="search_section flex w-full max-w-6xl mx-auto gap-0 border-2 border-yellow-400 bg-white rounded-lg mt-[-22px]">
+    <form method="POST" action="" class="search_section flex w-full max-w-6xl mx-auto gap-0 border-2 border-yellow-400 bg-white rounded-lg mt-[-22px]">
 
         <!-- Destination -->
         <div class="relative flex-1 border-2 border-yellow-400 p-2 bg-white">
@@ -25,7 +25,7 @@
 
         <!-- Check-in / Check-out -->
         <div class="relative flex-1 border-2 border-yellow-400 p-2 bg-white">
-            <button type="button" id="dateButton" class="w-full text-left">
+            <button type="button" id="dateButton" class="w-full text-left cursor-pointer">
                 Check-in - Check-out
             </button>
             <div id="dateDropdown" class="absolute top-full left-0 w-full bg-white border border-gray-300 shadow-lg mt-1 hidden p-2 z-10">
@@ -49,7 +49,7 @@
 
         <!-- Guests & Rooms -->
         <div class="relative flex-1 border-2 border-yellow-400 p-2 bg-white">
-            <button type="button" id="dropdownButton" class="w-full text-left">
+            <button type="button" id="dropdownButton" class="w-full text-left cursor-pointer">
                 Guests & Rooms
             </button>
             <div id="dropdownMenu" class="absolute top-full left-0 w-full bg-white border border-gray-300 shadow-lg mt-1 hidden p-2 z-10">

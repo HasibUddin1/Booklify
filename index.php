@@ -28,11 +28,17 @@ if (session_status() == PHP_SESSION_NONE) {
     <!-- Banner Section -->
     <?php include_once "includes/banner.php"; ?>
 
+    <!-- Search Result -->
+    <?php include_once "includes/search_result.php"; ?>
+
     <!-- Features Section -->
     <?php include_once "includes/features.php"; ?>
 
     <!-- Offers Section -->
     <?php include_once "includes/offers.php"; ?>
+
+    <!-- Trending Destinations Section -->
+    <?php include_once "includes/trending_destinations.php"; ?>
 
     
 
