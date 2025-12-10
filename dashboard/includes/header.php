@@ -17,6 +17,7 @@ $curPageName = substr($_SERVER["SCRIPT_NAME"], strrpos($_SERVER["SCRIPT_NAME"], 
                 <div>
 
                     <a class="bg-white nav_link_auth px-2 py-1 text-[14px] rounded-sm font-semibold" href="../index">Home</a>
+                    <a class="bg-red-600 text-white nav_link_auth px-2 py-1 text-[14px] rounded-sm font-semibold" href="../core/logout">Log Out</a>
 
                 </div>
             </div>
