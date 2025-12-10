@@ -36,7 +36,7 @@ $houseRules = json_decode($hotel['house_rules'], true) ?: [];
 <html lang="en">
 
 <head>
-    <?php $pageInfo = ["title" => "Home"]; ?>
+    <?php $pageInfo = ["title" => "Home - Hotel"]; ?>
     <?php include_once "includes/head.php"; ?>
 </head>
 
@@ -132,7 +132,7 @@ $houseRules = json_decode($hotel['house_rules'], true) ?: [];
 
         <!-- Book Now Button -->
         <div class="text-center mt-8 mb-12">
-            <?php if (!isset($_SESSION["user"])): ?>
+            <?php if (!isset($_SESSION["user_id"])): ?>
                 <button onclick="openLoginModal()"
                     class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 cursor-pointer">
                     Book Now

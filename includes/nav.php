@@ -2,10 +2,6 @@
 $curPageName = substr($_SERVER["SCRIPT_NAME"], strrpos($_SERVER["SCRIPT_NAME"], "/") + 1);
 ?>
 
-<style>
-
-</style>
-
 
 <section class="header_section bg-[#003a95]">
     <nav class="pt-4">
