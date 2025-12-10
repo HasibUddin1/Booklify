@@ -1,7 +1,7 @@
 <!-- Banner Section -->
 <section class="banner_section">
     <div class="bg-[#003a95]">
-        <div class="max-w-6xl mx-auto pt-[64px] pb-[78px] px-5 sm:px-6">
+        <div class="max-w-6xl mx-auto pt-[64px] pb-[78px] px-5 sm:px-0">
             <h2 class="text-white hero_text font-bold text-2xl sm:text-3xl md:text-4xl">Find your next stay</h2>
             <p class="text-white text-lg sm:text-xl md:text-2xl mt-2">Search deals on hotels, homes, and much more...</p>
         </div>

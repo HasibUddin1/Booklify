@@ -1,5 +1,5 @@
 <!-- Offers Section -->
-<section class="offers_section max-w-6xl mx-auto pb-10 px-4 sm:px-6">
+<section class="offers_section max-w-6xl mx-auto pb-10 px-4 sm:px-0">
     <h1 class="text-2xl font-bold mb-2">Offers</h1>
     <p class="mt-0 mb-6 text-gray-600">Promotions, deals, and special offers for you</p>
 
