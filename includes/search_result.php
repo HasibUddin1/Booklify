@@ -28,7 +28,7 @@ if (!isset($searchResults) || !is_array($searchResults)) {
                         <p class="mt-2 font-semibold">Max Guests: <?php echo $hotel['max_guests']; ?></p>
 
                         <!-- View Details Button -->
-                        <a href="hotel.php?id=<?php echo $hotel['id']; ?>"
+                        <a href="single_hotel.php?id=<?php echo $hotel['id']; ?>"
                             class="inline-block mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">
                             View Details
                         </a>
