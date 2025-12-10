@@ -16,17 +16,25 @@ if (!isset($searchResults) || !is_array($searchResults)) {
                         <?php
                         // Images
                         $images = explode(',', str_replace(['[', ']', '"'], '', $hotel['images']));
-                        $firstImage = $images[0] ?? 'default.jpg'; // If there is no image
+                        $firstImage = $images[0] ?? 'default.jpg';
                         ?>
                         <img src="uploads/<?php echo $firstImage; ?>" class="w-full h-full object-cover" />
                     </div>
+
                     <div class="flex-1">
                         <h2 class="font-bold text-xl"><?php echo $hotel['name']; ?></h2>
                         <p class="text-gray-600"><?php echo $hotel['location']; ?></p>
                         <p class="mt-2"><?php echo $hotel['description']; ?></p>
                         <p class="mt-2 font-semibold">Max Guests: <?php echo $hotel['max_guests']; ?></p>
+
+                        <!-- View Details Button -->
+                        <a href="hotel.php?id=<?php echo $hotel['id']; ?>"
+                            class="inline-block mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">
+                            View Details
+                        </a>
                     </div>
                 </div>
+
             <?php endforeach; ?>
         <?php endif; ?>
     </div>
