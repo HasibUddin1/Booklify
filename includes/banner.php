@@ -10,7 +10,7 @@
     <!-- Search Container -->
     <form method="POST" action="" class="search_section flex w-full max-w-6xl mx-auto gap-0 border-2 border-yellow-400 bg-white rounded-lg mt-[-22px]">
 
-        <!-- Destination -->
+        <!-- Destination Input -->
         <div class="relative flex-1 border-2 border-yellow-400 p-2 bg-white">
             <input
                 type="text"
@@ -19,7 +19,6 @@
                 placeholder="Where are you going?"
                 class="w-full focus:outline-none bg-white"
                 autocomplete="off" />
-            <!-- Suggestions Dropdown -->
             <div id="destinationSuggestions" class="absolute top-full left-0 w-full bg-white border border-gray-300 shadow-lg mt-1 hidden z-10"></div>
         </div>
 

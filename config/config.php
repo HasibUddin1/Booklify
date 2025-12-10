@@ -19,7 +19,7 @@ define("DB_PASSWORD", "");
 define("SITE_NAME", "Booklify");
 define("URL", "booklify.io");
 define("CORP_NAME", "");
-define("PHONE", "");
+define("PHONE", "123456789");
 define("SUPPORT_EMAIL", "contactus@booklify.com");
 define("ADDRESS", "8 The Green, Suite A, Dover, Delaware 19901, USA");
 

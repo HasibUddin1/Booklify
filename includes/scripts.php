@@ -16,30 +16,36 @@
     destinationInput.addEventListener('input', function() {
         const query = this.value.toLowerCase().trim();
 
-        if (query === "") {
+        if (!query) {
             suggestionsBox.classList.add('hidden');
             return;
         }
 
         const filtered = destinations.filter(dest => dest.toLowerCase().includes(query));
 
+        suggestionsBox.innerHTML = '';
+
         if (filtered.length === 0) {
             suggestionsBox.classList.add('hidden');
             return;
         }
 
-        suggestionsBox.innerHTML = filtered.map(dest => `
-        <div class="p-2 hover:bg-gray-100 cursor-pointer" onclick="selectDestination('${dest}')">${dest}</div>
-    `).join('');
+        filtered.forEach(dest => {
+            const div = document.createElement('div');
+            div.className = 'p-2 hover:bg-gray-100 cursor-pointer';
+            div.textContent = dest;
+
+            // Add click listener safely
+            div.addEventListener('click', () => {
+                destinationInput.value = dest;
+                suggestionsBox.classList.add('hidden');
+            });
+
+            suggestionsBox.appendChild(div);
+        });
 
         suggestionsBox.classList.remove('hidden');
     });
-
-    // Function to set input when user clicks a suggestion
-    function selectDestination(value) {
-        destinationInput.value = value;
-        suggestionsBox.classList.add('hidden');
-    }
 
     // Hide dropdown if clicked outside
     document.addEventListener('click', function(e) {
