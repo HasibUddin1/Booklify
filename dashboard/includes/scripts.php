@@ -88,13 +88,28 @@
                     bookingToCancel = null;
 
                     if (data.status === 'success') {
-                        alert('Booking canceled successfully!');
+                        // Tailwind success modal message
+                        showCancelSuccessModal(data.message || 'Booking canceled successfully!');
                         fetchBookings();
                     } else {
-                        alert(data.message || 'Failed to cancel booking.');
+                        showCancelSuccessModal(data.message || 'Failed to cancel booking.');
                     }
                 })
                 .catch(err => console.error(err));
         });
+
+        // Optional: Success Modal after cancel
+        function showCancelSuccessModal(message) {
+            const successModal = document.createElement('div');
+            successModal.className = 'fixed inset-0 flex items-center justify-center bg-black/50 z-50';
+            successModal.innerHTML = `
+            <div class="bg-white p-6 rounded-lg shadow-lg max-w-sm text-center">
+                <p class="text-gray-800 mb-4">${message}</p>
+                <button onclick="this.parentElement.parentElement.remove()"
+                    class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 cursor-pointer">OK</button>
+            </div>`;
+            document.body.appendChild(successModal);
+        }
+
     });
 </script>

@@ -111,7 +111,7 @@
 </script>
 
 
-<!-- Modal JS -->
+<!-- Login Modal JS -->
 <script>
     function openLoginModal() {
         document.getElementById("loginModal").classList.remove("hidden");
@@ -120,4 +120,30 @@
     function closeLoginModal() {
         document.getElementById("loginModal").classList.add("hidden");
     }
+</script>
+
+
+
+<!-- Successful Booking Modal -->
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Check if booking was successful (from PHP)
+        <?php if ($success): ?>
+            const modal = document.getElementById('bookingSuccessModal');
+            const message = document.getElementById('bookingSuccessMessage');
+            message.textContent = "Your booking has been confirmed!"; // optional, dynamic message
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.querySelector('div').classList.remove('scale-90');
+                modal.querySelector('div').classList.add('scale-100');
+            }, 10);
+
+            // Close modal on button click
+            document.getElementById('closeBookingSuccessModal').addEventListener('click', function() {
+                modal.querySelector('div').classList.remove('scale-100');
+                modal.querySelector('div').classList.add('scale-90');
+                setTimeout(() => modal.classList.add('hidden'), 200);
+            });
+        <?php endif; ?>
+    });
 </script>

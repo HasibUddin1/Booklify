@@ -41,13 +41,30 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($totalGuests > $hotel['max_guests']) {
         $error = "Total guests exceed maximum allowed for this hotel.";
     } else {
-        $stmt = $conn->prepare("INSERT INTO bookings (user_id, hotel_id, checkin_date, checkout_date, guests, rooms) VALUES (?, ?, ?, ?, ?, ?)");
-        $stmt->bind_param("iissii", $user_id, $hotel_id, $checkin, $checkout, $totalGuests, $rooms);
-        if ($stmt->execute()) {
-            $success = true;
+        // Check for overlapping booking
+        $stmt = $conn->prepare("
+            SELECT * FROM bookings 
+            WHERE user_id = ? AND hotel_id = ? 
+            AND (checkin_date <= ? AND checkout_date >= ?)
+        ");
+        $stmt->bind_param("iiss", $user_id, $hotel_id, $checkout, $checkin);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if ($result->num_rows > 0) {
+            $error = "You already have a booking for this hotel during the selected dates.";
         } else {
-            $error = "Booking failed. Please try again.";
+            // Insert booking
+            $stmtInsert = $conn->prepare("INSERT INTO bookings (user_id, hotel_id, checkin_date, checkout_date, guests, rooms) VALUES (?, ?, ?, ?, ?, ?)");
+            $stmtInsert->bind_param("iissii", $user_id, $hotel_id, $checkin, $checkout, $totalGuests, $rooms);
+            if ($stmtInsert->execute()) {
+                $success = true;
+            } else {
+                $error = "Booking failed. Please try again.";
+            }
+            $stmtInsert->close();
         }
+
         $stmt->close();
     }
 }
@@ -73,11 +90,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <div class="bg-red-200 text-red-800 p-3 rounded mb-4"><?= $error ?></div>
         <?php endif; ?>
 
-        <?php if ($success): ?>
-            <div class="bg-green-200 text-green-800 p-3 rounded mb-4">
-                Booking successful!
-            </div>
-        <?php endif; ?>
+
 
         <div class="mb-6">
             <p><strong>Location:</strong> <?= htmlspecialchars($hotel['location']) ?></p>
@@ -122,6 +135,47 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
     <?php include_once "includes/footer.php"; ?>
+
+
+
+
+    <!-- Booking Success Modal -->
+    <div id="bookingSuccessModal"
+        class="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 hidden">
+        <div class="bg-white/20 dark:bg-gray-800/40 backdrop-blur-xl border border-white/30 dark:border-gray-700/40 
+        w-full max-w-md rounded-3xl shadow-2xl p-8 scale-90 transition-transform duration-200">
+
+            <!-- Icon -->
+            <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-green-100 flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                    class="h-10 w-10 text-green-600"
+                    fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M5 13l4 4L19 7" />
+                </svg>
+            </div>
+
+            <!-- Title -->
+            <h2 class="text-2xl font-bold text-center text-white mb-2">
+                Booking Successful
+            </h2>
+
+            <!-- Message -->
+            <p id="bookingSuccessMessage" class="text-center text-white mb-6">
+                Your booking has been confirmed!
+            </p>
+
+            <!-- Close Button -->
+            <div class="flex justify-center">
+                <button id="closeBookingSuccessModal"
+                    class="px-5 py-2.5 rounded-xl bg-green-600 text-white hover:bg-green-700 transition cursor-pointer">
+                    OK
+                </button>
+            </div>
+        </div>
+    </div>
+
+
 
     <?php include_once "includes/scripts.php"; ?>
 </body>

@@ -23,29 +23,7 @@ $curPageName = substr($_SERVER["SCRIPT_NAME"], strrpos($_SERVER["SCRIPT_NAME"], 
 
 
 
-            <div class="nav-links-container text-white pb-3">
-                <ul class="flex ps-0">
-                    <li class="nav-item">
-                        <a class="nav_link px-4 py-[11px] text-white rounded-full hover:bg-[#1a4fa1] <?php echo ($curPageName == 'index.php') ? 'border border-white bg-[#1a4fa1]' : ''; ?>" href="index.php">Stays</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav_link px-4 py-[11px] text-white rounded-full hover:bg-[#1a4fa1] <?php echo ($curPageName == 'flights.php') ? 'border border-white bg-[#1a4fa1]' : ''; ?>" href="flights.php">Flights</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav_link px-4 py-[11px] text-white rounded-full hover:bg-[#1a4fa1] <?php echo ($curPageName == 'car_rental.php') ? 'border border-white bg-[#1a4fa1]' : ''; ?>" href="car_rental.php">Car Rental</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav_link px-4 py-[11px] text-white rounded-full hover:bg-[#1a4fa1] <?php echo ($curPageName == 'attractions.php') ? 'border border-white bg-[#1a4fa1]' : ''; ?>" href="attractions.php">Attractions</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav_link px-4 py-[11px] text-white rounded-full hover:bg-[#1a4fa1] <?php echo ($curPageName == 'airport.php') ? 'border border-white bg-[#1a4fa1]' : ''; ?>" href="airport.php">Airport taxis</a>
-                    </li>
-                </ul>
-            </div>
+            <!-- Navlinks container -->
 
 
 
