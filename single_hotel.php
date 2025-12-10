@@ -55,7 +55,7 @@ $houseRules = json_decode($hotel['house_rules'], true) ?: [];
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
             <?php foreach ($images as $img): ?>
                 <div class="h-60 overflow-hidden rounded-lg">
-                    <img src="uploads/<?php echo $img; ?>" class="w-full h-full object-cover">
+                    <img src="<?php echo $img; ?>" class="w-full h-full object-cover">
                 </div>
             <?php endforeach; ?>
         </div>
@@ -132,15 +132,81 @@ $houseRules = json_decode($hotel['house_rules'], true) ?: [];
 
         <!-- Book Now Button -->
         <div class="text-center mt-8 mb-12">
-            <a href="booking.php?hotel_id=<?php echo $hotel['id']; ?>"
-                class="px-8 py-3 bg-yellow-500 hover:bg-yellow-600 text-white text-lg font-semibold rounded-lg shadow">
-                Book Now
-            </a>
+            <?php if (!isset($_SESSION["user"])): ?>
+                <button onclick="openLoginModal()"
+                    class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 cursor-pointer">
+                    Book Now
+                </button>
+            <?php else: ?>
+                <a href="booking.php?hotel_id=<?= $hotel['id'] ?>"
+                    class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 cursor-pointer">
+                    Book Now
+                </a>
+            <?php endif; ?>
         </div>
 
     </div>
 
     <?php include_once "includes/footer.php"; ?>
+
+
+
+
+
+    <!-- Premium Login Required Modal -->
+    <div id="loginModal"
+        class="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 hidden">
+
+        <div class="bg-white/20 dark:bg-gray-800/40 backdrop-blur-xl border border-white/30 dark:border-gray-700/40 
+                w-full max-w-md rounded-3xl shadow-2xl p-8 animate-premiumScale">
+
+            <!-- Icon -->
+            <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-blue-600/20 flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                    class="h-10 w-10 text-blue-600 dark:text-blue-400"
+                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm-4 4v4m-7-4h14" />
+                </svg>
+            </div>
+
+            <!-- Title -->
+            <h2 class="text-2xl font-bold text-center text-gray-900 dark:text-gray-100 mb-2">
+                Login Required
+            </h2>
+
+            <!-- Message -->
+            <p class="text-center text-gray-700 dark:text-gray-300 mb-6">
+                You need to log in before booking this hotel.
+            </p>
+
+            <!-- Buttons -->
+            <div class="flex justify-center gap-4">
+                <button onclick="closeLoginModal()"
+                    class="px-5 py-2.5 rounded-xl bg-white/40 dark:bg-gray-700/40 border border-white/30 dark:border-gray-600 
+                       text-gray-900 dark:text-gray-100 hover:bg-white/60 dark:hover:bg-gray-700/60 transition cursor-pointer">
+                    Cancel
+                </button>
+
+                <a href="login.php"
+                    class="px-5 py-2.5 rounded-xl bg-blue-600 text-white shadow hover:bg-blue-700 
+                      transition flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                        class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                            d="M15 3h4v4m0-4L9 13m-4 4h4m0 0v4m0-4l10-10" />
+                    </svg>
+                    Login
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <?php include_once "includes/scripts.php"; ?>
+
 </body>
 
 </html>

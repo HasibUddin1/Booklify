@@ -16,11 +16,11 @@ define("DB_USERNAME", "root");
 define("DB_PASSWORD", "");
 
 
-define("SITE_NAME", "Booking Website");
-define("URL", "digitalbots.io");
-define("CORP_NAME", "Platinum Business Solutions Limited");
-define("PHONE", "888-286-3044");
-define("SUPPORT_EMAIL", "contactus@digitalbots.io");
+define("SITE_NAME", "Booklify");
+define("URL", "booklify.io");
+define("CORP_NAME", "");
+define("PHONE", "");
+define("SUPPORT_EMAIL", "contactus@booklify.com");
 define("ADDRESS", "8 The Green, Suite A, Dover, Delaware 19901, USA");
 
 

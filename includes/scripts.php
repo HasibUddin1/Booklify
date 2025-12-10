@@ -1,6 +1,3 @@
-
-
-
 <!-- Fetching Destinations -->
 <script>
     // DOM elements
@@ -110,5 +107,17 @@
                 window.history.replaceState({}, document.title, url);
             }
         }, 5000); // 5 seconds
+    }
+</script>
+
+
+<!-- Modal JS -->
+<script>
+    function openLoginModal() {
+        document.getElementById("loginModal").classList.remove("hidden");
+    }
+
+    function closeLoginModal() {
+        document.getElementById("loginModal").classList.add("hidden");
     }
 </script>

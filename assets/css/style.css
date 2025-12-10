@@ -14,13 +14,95 @@ body {
   text-decoration: none;
 }
 
-.banner_section .hero_text{
+.banner_section .hero_text {
   font-size: 48px;
   font-weight: 700;
 }
 
-
-.features_section .feature_heading{
+.features_section .feature_heading {
   font-size: 24px;
   font-weight: 700;
+}
+
+/* Modal CSS */
+/* Modal Background */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(3px);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+/* Modal Box */
+.modal-box {
+  background: #fff;
+  padding: 25px 30px;
+  width: 350px;
+  border-radius: 14px;
+  text-align: center;
+  animation: fadeIn 0.3s ease-out;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  font-family: Arial;
+}
+
+.modal-box h2 {
+  margin-bottom: 10px;
+  color: #222;
+}
+
+.modal-box p {
+  margin-bottom: 20px;
+  color: #555;
+  font-size: 15px;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Buttons */
+.btn-cancel,
+.btn-login {
+  padding: 10px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  transition: 0.25s;
+}
+
+.btn-cancel {
+  background: #ddd;
+  color: #333;
+}
+
+.btn-cancel:hover {
+  background: #c9c9c9;
+}
+
+.btn-login {
+  background: #007bff;
+  color: #fff;
+}
+
+.btn-login:hover {
+  background: #005ecb;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }

@@ -24,3 +24,22 @@
 <!-- Stylesheets -->
 <link href="assets/css/style.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+<!-- Modal -->
+<style>
+    @keyframes premiumScale {
+        0% {
+            opacity: 0;
+            transform: scale(.85) translateY(10px);
+        }
+
+        100% {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+        }
+    }
+
+    .animate-premiumScale {
+        animation: premiumScale .25s ease-out;
+    }
+</style>
