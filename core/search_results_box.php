@@ -1,27 +1,35 @@
 <?php
-include_once "core/db_connection.php";
+include_once __DIR__ . "/db_connection.php";
 
-$searchResults = []; // empty by default
+$searchResults = [];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $destination = mysqli_real_escape_string($conn, $_POST['destination'] ?? '');
-    $checkIn = $_POST['checkin_date'] ?? '';
-    $checkOut = $_POST['checkout_date'] ?? '';
+
+    // Trim + Clean
+    $destination = strtolower(trim($_POST['destination'] ?? ''));
     $adults = intval($_POST['adults'] ?? 1);
     $children = intval($_POST['children'] ?? 0);
     $totalGuests = $adults + $children;
 
-    $sql = "SELECT * FROM hotels 
-            WHERE destination LIKE '%$destination%'
-            AND available_from <= '$checkIn'
-            AND available_to >= '$checkOut'
-            AND max_guests >= $totalGuests";
+    // Debug check
+    // echo "<pre>"; var_dump($destination, $totalGuests); exit;
 
-    $result = $conn->query($sql);
+    if (!empty($destination)) {
 
-    if ($result->num_rows > 0) {
-        while ($row = $result->fetch_assoc()) {
-            $searchResults[] = $row;
+        $destinationEscaped = mysqli_real_escape_string($conn, $destination);
+
+        $sql = "
+            SELECT * FROM hotels 
+            WHERE LOWER(destination) LIKE '%$destinationEscaped%'
+            AND max_guests >= $totalGuests
+        ";
+
+        $result = $conn->query($sql);
+
+        if ($result && $result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                $searchResults[] = $row;
+            }
         }
     }
 }

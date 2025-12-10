@@ -14,9 +14,9 @@ if (!isset($searchResults) || !is_array($searchResults)) {
                 <div class="border rounded p-4 mb-4 flex gap-4">
                     <div class="w-48 h-32 overflow-hidden rounded">
                         <?php
-                        // images থেকে প্রথম image
+                        // Images
                         $images = explode(',', str_replace(['[', ']', '"'], '', $hotel['images']));
-                        $firstImage = $images[0] ?? 'default.jpg'; // যদি image na thake
+                        $firstImage = $images[0] ?? 'default.jpg'; // If there is no image
                         ?>
                         <img src="uploads/<?php echo $firstImage; ?>" class="w-full h-full object-cover" />
                     </div>

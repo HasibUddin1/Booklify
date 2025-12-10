@@ -1,19 +1,4 @@
-<!-- jequery plugins -->
-<script src="assets/js/jquery.js"></script>
-<script src="assets/js/popper.min.js"></script>
 
-<script src="assets/js/owl.js"></script>
-<script src="assets/js/wow.js"></script>
-<script src="assets/js/validation.js"></script>
-<script src="assets/js/jquery.fancybox.js"></script>
-<script src="assets/js/appear.js"></script>
-<script src="assets/js/scrollbar.js"></script>
-<script src="assets/js/isotope.js"></script>
-<script src="assets/js/jquery.nice-select.min.js"></script>
-<script src="assets/js/language.js"></script>
-
-<!-- main-js -->
-<script src="assets/js/script.js"></script>
 
 
 <!-- Fetching Destinations -->
@@ -78,28 +63,28 @@
         dropdownMenu.classList.toggle('hidden');
     });
 
-    // Date picker dropdown
-    const dateButton = document.getElementById('dateButton');
-    const dateDropdown = document.getElementById('dateDropdown');
+    // // Date picker dropdown
+    // const dateButton = document.getElementById('dateButton');
+    // const dateDropdown = document.getElementById('dateDropdown');
 
-    dateButton.addEventListener('click', () => {
-        dateDropdown.classList.toggle('hidden');
-    });
+    // dateButton.addEventListener('click', () => {
+    //     dateDropdown.classList.toggle('hidden');
+    // });
 
-    const applyDates = document.getElementById('applyDates');
-    const checkin = document.getElementById('checkin');
-    const checkout = document.getElementById('checkout');
+    // const applyDates = document.getElementById('applyDates');
+    // const checkin = document.getElementById('checkin');
+    // const checkout = document.getElementById('checkout');
 
-    applyDates.addEventListener('click', () => {
-        const ci = checkin.value;
-        const co = checkout.value;
-        if (ci && co) {
-            dateButton.innerText = `${ci} - ${co}`;
-            document.getElementById('checkin_hidden').value = ci;
-            document.getElementById('checkout_hidden').value = co;
-        }
-        dateDropdown.classList.add('hidden');
-    });
+    // applyDates.addEventListener('click', () => {
+    //     const ci = checkin.value;
+    //     const co = checkout.value;
+    //     if (ci && co) {
+    //         dateButton.innerText = `${ci} - ${co}`;
+    //         document.getElementById('checkin_hidden').value = ci;
+    //         document.getElementById('checkout_hidden').value = co;
+    //     }
+    //     dateDropdown.classList.add('hidden');
+    // });
 
     // Quantity counters
     const counts = {

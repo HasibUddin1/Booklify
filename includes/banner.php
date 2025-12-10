@@ -23,29 +23,7 @@
             <div id="destinationSuggestions" class="absolute top-full left-0 w-full bg-white border border-gray-300 shadow-lg mt-1 hidden z-10"></div>
         </div>
 
-        <!-- Check-in / Check-out -->
-        <div class="relative flex-1 border-2 border-yellow-400 p-2 bg-white">
-            <button type="button" id="dateButton" class="w-full text-left cursor-pointer">
-                Check-in - Check-out
-            </button>
-            <div id="dateDropdown" class="absolute top-full left-0 w-full bg-white border border-gray-300 shadow-lg mt-1 hidden p-2 z-10">
-                <div class="flex flex-col gap-2">
-                    <label>
-                        Check-in:
-                        <input type="date" id="checkin" class="border p-1 w-full" />
-                    </label>
-                    <label>
-                        Check-out:
-                        <input type="date" id="checkout" class="border p-1 w-full" />
-                    </label>
-                </div>
-                <button type="button" id="applyDates" class="mt-2 bg-blue-600 text-white px-4 py-1 rounded">Apply</button>
-            </div>
 
-            <!-- Hidden fields -->
-            <input type="hidden" name="checkin_date" id="checkin_hidden" />
-            <input type="hidden" name="checkout_date" id="checkout_hidden" />
-        </div>
 
         <!-- Guests & Rooms -->
         <div class="relative flex-1 border-2 border-yellow-400 p-2 bg-white">
@@ -93,23 +71,14 @@
         </div>
 
         <!-- Search Button -->
-        <button type="submit" class="bg-blue-600 text-white px-4 py-2 border-2 border-yellow-400">Search</button>
+        <button type="submit" class="bg-blue-600 text-white px-4 py-2 border-2 border-yellow-400 cursor-pointer">Search</button>
 
     </form>
 
-    <!-- Success / Error Message -->
-    <div class="success_message">
-        <?php if (isset($_GET['success'])): ?>
-            <div id="msgBox" class="p-3 bg-green-200 text-green-900 rounded mb-3">
-                Booking successfully saved!
-            </div>
-        <?php endif; ?>
 
-        <?php if (isset($_GET['error'])): ?>
-            <div id="msgBox" class="p-3 bg-red-200 text-red-900 rounded mb-3">
-                Error: <?= htmlspecialchars($_GET['error']) ?>
-            </div>
-        <?php endif; ?>
-    </div>
 
 </section>
+
+
+<!-- Search Result -->
+<?php include_once "search_result.php"; ?>

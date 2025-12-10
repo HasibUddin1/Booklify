@@ -1,6 +1,6 @@
 <?php
 
-include_once "../config/config.php";
+include_once __DIR__ . "/../config/config.php";
 
 // make connection to database
 
