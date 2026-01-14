@@ -25,15 +25,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <?php include_once "includes/nav.php"; ?>
 
     <!-- Banner -->
-    <?php include_once "includes/banner.php"; ?>
+    <?php include_once "includes/Stays/banner.php"; ?>
 
     <!-- Search Result -->
-    <?php include_once "includes/search_result.php"; ?>
+    <?php include_once "includes/Stays/search_result.php"; ?>
 
     <!-- Other Sections -->
-    <?php include_once "includes/features.php"; ?>
-    <?php include_once "includes/offers.php"; ?>
-    <?php include_once "includes/trending_destinations.php"; ?>
+    <?php include_once "includes/Stays/features.php"; ?>
+    <?php include_once "includes/Stays/offers.php"; ?>
+    <?php include_once "includes/Stays/trending_destinations.php"; ?>
     <?php include_once "includes/footer.php"; ?>
 
     <?php include_once "includes/scripts.php"; ?>
